@@ -10,20 +10,27 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 
-        <script type="text/javascript" src="js/vue.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/data_service.js"></script>
     </head>
     <body class="main-cont">		
-		<div class="search-results">			
+		<div class="search-results">
+			<form>
+				<input type="text" class="input-place" v-model="place" placeholder="Explore Places In. e.g. NY" />
+				<div class="input-category-container">
+					<span></span>
+					<input type="text" class="input-category" v-model="category" placeholder="Category. e.g. Burger" />
+				</div>						
+				<button v-on:click="explore" type="button" class="btn btn-primary">Explore</button>                
+			</form>
 			<div class="box-1">
 				<div class="box-2">
-					<form>
-						<input type="text" class="input-place" v-model="place" placeholder="Explore Places In. e.g. NY" />
-						<div class="input-category-container">
-							<span></span>
-							<input type="text" class="input-category" v-model="category" placeholder="Category. e.g. Burger" />
-						</div>						
-						<button v-on:click="explore" type="button" class="btn btn-primary">Explore</button>                
-					</form>
+					<ul>
+						<li v-for="item in items" class="result-item">
+							<div>{{ item.name }} <span v-bind:style="{ 'background-color': '#' + item.ratingColor }">{{item.rating}}</span></div>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="box-1"><div class="box-2"></div></div>
