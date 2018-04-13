@@ -13,7 +13,7 @@ var data = {};
 		var and = '&';
 
 		var url = baseUrl + clientId + and + cs + and + version + and + venuePhotos + and + limit + and + nearPlace + and + category;
-		
+
 		$.ajax({
 			url: url,
 			success: function(result) {
@@ -26,7 +26,7 @@ var data = {};
 						ratingColor: item.venue.ratingColor
 					});
 				})
-				
+
 				callback(items);
 			},
 			error: function(jqXHR, textStatus, errorThrown) {

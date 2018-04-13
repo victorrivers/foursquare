@@ -1,0 +1,59 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/roboto.woff2') format('woff2');
+}
+
+/* NORMALIZE */
+body {
+	margin: 0;
+	font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-color: #18012f;
+	color: #FFF;
+}
+input, textarea, select, button {
+	font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+ul {
+	padding: 0;
+	margin: 0;
+}
+li {
+	list-style-type: none;
+}
+
+.main {
+}
+
+.outer-box {
+	display: inline-block;
+	background: linear-gradient(to bottom, #35AFFF, #723FE8);
+
+	.inner-box {
+		background: linear-gradient(to right, rgba(86, 91, 255, 0.37), rgba(255, 255, 255, 0));
+	}
+}
+
+.results {
+	
+	li {
+		padding: 4px;
+	}
+	
+	.result__item {
+		padding: 20px;
+		background-color: rgba(255, 255, 255, 0.4);
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.result__item__name {
+			padding-right: 10px;
+		}
+
+		.result__item__rating {
+			padding: 2px 4px;
+			border-radius: 2px;
+		}
+	}
+}

@@ -1,21 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>Foursquare</title>
-        <meta charset="UTF-8">
-        <meta name="keywords" content="Vue.js,SPA,Single Page Application" />
-        <meta name="description" content="Single Page Application built using Vue.js" />
-        <meta name="author" content="Victor Rios">
+	<head>
+		<title>Foursquare</title>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="Vue.js,SPA,Single Page Application" />
+		<meta name="description" content="Single Page Application built using Vue.js" />
+		<meta name="author" content="Victor Rios">
 
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/vue.js"></script>
 		<script type="text/javascript" src="js/data_service.js"></script>
-    </head>
-    <body class="main-cont">		
-		<div class="search-results">
+	</head>
+	<body>
+		<section class="main">
 			<form>
 				<input type="text" class="input-place" v-model="place" placeholder="Explore Places In. e.g. NY" />
 				<div class="input-category-container">
@@ -24,19 +24,18 @@
 				</div>						
 				<button v-on:click="explore" type="button" class="btn btn-primary">Explore</button>                
 			</form>
-			<div class="box-1">
-				<div class="box-2">
-					<ul>
-						<li v-for="item in items" class="result-item">
-							<div>{{ item.name }} <span v-bind:style="{ 'background-color': '#' + item.ratingColor }">{{item.rating}}</span></div>
+			<div class="outer-box">
+				<div class="inner-box">
+					<ul class="results">
+						<li v-for="item in items">
+							<div class="result__item">
+								<span class="result__item__name">{{ item.name }}</span>
+								<span class="result__item__rating" v-bind:style="{ 'background-color': '#' + item.ratingColor }">{{item.rating}}</span></div>
 						</li>
 					</ul>
 				</div>
 			</div>
-			<div class="box-1"><div class="box-2"></div></div>
-			<div class="box-1"><div class="box-2"></div></div>
-			<div class="box-1"><div class="box-2"></div></div>
-		</div>
+		</section>
 		<script type="text/javascript" src="js/app.js"></script>
-    </body>
+	</body>
 </html>

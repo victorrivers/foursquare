@@ -1,7 +1,7 @@
 (function () {
 
 	var vm = new Vue({
-		el: '.search-results',
+		el: '.main',
 		data: {
 			place: '',
 			category: '',
@@ -13,10 +13,9 @@
 			}
 		}
 	});
-	
+
 	data.venues('New York', '', function(result) {
 		vm.items = result;
 		console.log(result);
 	});
-	
 })();
