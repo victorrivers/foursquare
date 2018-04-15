@@ -1,21 +1,27 @@
 (function () {
 
+	var rawData = [];
 	var vm = new Vue({
 		el: '.main',
 		data: {
 			place: '',
 			category: '',
-			items: []
+			displayItems: 10,
+			loading: true
+		},
+		computed: {
+			items: function(){
+				return rawData.slice(0, this.displayItems);
+			}
 		},
 		methods: {
 			explore: function() {
-				console.log('RESULTS', this.place, this.category);
 			}
 		}
 	});
 
 	data.venues('New York', '', function(result) {
-		vm.items = result;
-		console.log(result);
+		rawData = result;
+		vm.loading = false;
 	});
 })();

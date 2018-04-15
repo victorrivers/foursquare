@@ -9,7 +9,7 @@ var data = {};
 		var venuePhotos = 'venuePhotos=1';
 		var nearPlace = 'near=' + place.replace(" ","+");
 		var category = 'query=' + category;	  
-		var limit = 'limit=10';
+		var limit = 'limit=100';
 		var and = '&';
 
 		var url = baseUrl + clientId + and + cs + and + version + and + venuePhotos + and + limit + and + nearPlace + and + category;
@@ -17,7 +17,6 @@ var data = {};
 		$.ajax({
 			url: url,
 			success: function(result) {
-				console.log(result.response.groups[0].items);
 				var items = [];
 				$.each(result.response.groups[0].items, function(index, item) {
 					items.push({

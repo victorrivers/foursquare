@@ -49,3 +49,20 @@ li {
   padding: 2px 4px;
   border-radius: 2px;
 }
+
+@keyframes loadingAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader {
+  font-size: 30px;
+  color: red;
+  animation-name: loadingAnimation;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}

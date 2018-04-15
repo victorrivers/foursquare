@@ -26,13 +26,17 @@
 			</form>
 			<div class="outer-box">
 				<div class="inner-box">
-					<ul class="results">
+					<ul v-if="!loading" class="results">
 						<li v-for="item in items">
 							<div class="result__item">
 								<span class="result__item__name">{{ item.name }}</span>
 								<span class="result__item__rating" v-bind:style="{ 'background-color': '#' + item.ratingColor }">{{item.rating}}</span></div>
 						</li>
 					</ul>
+					<div v-else class="loader">
+						M
+					</div>
+					<button type="button" v-on:click="displayItems+=10">MORE</button>
 				</div>
 			</div>
 		</section>
