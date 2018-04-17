@@ -23,6 +23,12 @@ li {
   list-style-type: none;
 }
 
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .outer-box {
   display: inline-block;
   background: linear-gradient(to bottom, #35AFFF, #723FE8);
@@ -50,7 +56,7 @@ li {
   border-radius: 2px;
 }
 
-@keyframes loadingAnimation {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -59,9 +65,8 @@ li {
   }
 }
 .loader {
-  font-size: 30px;
-  color: red;
-  animation-name: loadingAnimation;
+  display: block;
+  animation-name: spin;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;

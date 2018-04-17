@@ -22,6 +22,9 @@ li {
 }
 
 .main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .outer-box {
@@ -58,7 +61,7 @@ li {
 	}
 }
 
-@keyframes loadingAnimation {
+@keyframes spin {
 	0% {
 		transform: rotate(0deg);
 	}
@@ -68,9 +71,8 @@ li {
 }
 
 .loader {
-	font-size: 30px;
-	color: red;
-	animation-name: loadingAnimation;
+	display: block;
+	animation-name: spin;
 	animation-duration: 1s;
 	animation-timing-function: ease-in-out;
 	animation-iteration-count: infinite;

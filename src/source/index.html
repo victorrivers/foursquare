@@ -16,26 +16,40 @@
 	</head>
 	<body>
 		<section class="main">
-			<form>
-				<input type="text" class="input-place" v-model="place" placeholder="Explore Places In. e.g. NY" />
-				<div class="input-category-container">
-					<span></span>
-					<input type="text" class="input-category" v-model="category" placeholder="Category. e.g. Burger" />
-				</div>						
-				<button v-on:click="explore" type="button" class="btn btn-primary">Explore</button>                
-			</form>
-			<div class="outer-box">
+			<svg v-if="loading" class="loader" height="258" width="258">
+				<defs>
+					<circle id="circle" fill="#FFF" r="3"></circle>
+
+					<g id="circles">
+						<use href="#circle" x="0" y="20"></use>
+						<use href="#circle" x="16" y="13"></use>
+						<use href="#circle" x="32" y="9"></use>
+						<use href="#circle" x="48" y="7"></use>
+						<use href="#circle" x="64" y="7"></use>
+						<use href="#circle" x="80" y="9"></use>
+						<use href="#circle" x="96" y="13"></use>
+						<use href="#circle" x="112" y="20"></use>
+						<use href="#circle" x="128" y="30"></use>
+					</g>
+				</defs>
+				<use href="#circles" x="73" y="3"></use>
+				<use href="#circles" transform="rotate(270 94 91)"></use>
+				<use href="#circles" transform="rotate(180 93 128)"></use>
+				<use href="#circles" transform="rotate(90 92 164)"></use>
+
+				<!--<circle r="120" cx="129" cy="129" opacity="0.3"></circle>
+				<line stroke="#00F" x1="129" y1="0" x2="129" y2="258" ></line>
+				<line stroke="#00F" x1="0" y1="129" x2="258" y2="129" ></line>-->
+			</svg>
+			<div v-else class="outer-box">
 				<div class="inner-box">
-					<ul v-if="!loading" class="results">
+					<ul class="results">
 						<li v-for="item in items">
 							<div class="result__item">
 								<span class="result__item__name">{{ item.name }}</span>
 								<span class="result__item__rating" v-bind:style="{ 'background-color': '#' + item.ratingColor }">{{item.rating}}</span></div>
 						</li>
 					</ul>
-					<div v-else class="loader">
-						M
-					</div>
 					<button type="button" v-on:click="displayItems+=10">MORE</button>
 				</div>
 			</div>
